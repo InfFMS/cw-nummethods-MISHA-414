@@ -91,37 +91,3 @@ ogranich=[[0.00005, 0.00007], [0.00007, 0.00015], [0.00015, 0.00025]]
 for l_r in ogranich:
     left, right=l_r[0], l_r[1]
     print(round(search_solution(left, right, eps), 7))
-
-
-# Задача 5
-V_1=round(search_solution(ogranich[0][0], ogranich[0][1], eps), 7)
-V_g=round(search_solution(ogranich[2][0], ogranich[2][1], eps), 7)
-p_0 = 3664186.998
-eps=10**-7
-
-def integral(v, left, right, f, eps):
-    fig, ax = plt.subplots()
-    ax.plot(v, f(v))
-
-    v0=left
-    square=0
-    while v0<right:
-        average_value=(f(v0)+f(v0+eps))/2
-        # Прямоугольник
-        rect = plt.Rectangle((v0+eps/2, 0), eps, average_value, color="red")
-        ax.add_patch(rect)
-
-        del_area=average_value*eps
-        square+=del_area
-        v0+=eps
-    print(square)
-    plt.axhline(color='black')
-    plt.axvline(color='black')
-    plt.grid(True)
-    plt.show()
-    return square
-t=-130
-
-# не понятно для какой функцbи нужно было написать интеграл 
-
-# integral(v, V_1, V_g, fun_po, eps)
