@@ -30,7 +30,7 @@ def task_1(T):
 
 # Задача 2
 
-#task_1(-130)
+task_1(-130)
 def fv(v):
     t = 273.15 - 130
     return R * t / (v - b) - a / v ** 2
